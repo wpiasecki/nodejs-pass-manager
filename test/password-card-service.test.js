@@ -23,8 +23,7 @@ test('delete', () => {
 
 test('update', () => {
   const service = getService();
-  service.update({
-    id: 7,
+  service.update(7, {
     username: 'doejohn'
   });
   const notamazon = service.findById(7);

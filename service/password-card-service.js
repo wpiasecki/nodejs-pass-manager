@@ -32,12 +32,16 @@ class PasswordCardService {
     return this.db.cards.find(card => card.id === id);
   }
   
-  update(data) {
-    const card = this.findById(data.id);
-    if (data.name) { card.name = data.name }
-    if (data.username) { card.username = data.username }
-    if (data.password) { card.password = data.password }
-    if (data.url) { card.url = data.url }
+  update(id, data) {
+    const card = this.findById(id);
+    if (card) {
+      if (data.name) { card.name = data.name }
+      if (data.username) { card.username = data.username }
+      if (data.password) { card.password = data.password }
+      if (data.url) { card.url = data.url }
+    } else {
+      throw new Error(`no card for ${id}`);
+    }
   }
   
   delete(id) {

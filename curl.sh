@@ -9,3 +9,4 @@ curl -XPOST -i http://localhost:5050/password-cards --data '{ "name": "twitter",
 
 
 # PUT
+curl -XPUT -i http://localhost:5050/password-cards/1 --data '{ "name": "twitter", "username": "echo", "url": "http://twitter.com", "username": "123123", "password": "hellyeah" }' -H 'content-type: application/json' 

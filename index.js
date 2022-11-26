@@ -29,10 +29,9 @@ app.post('/password-cards/', function(req, res) {
     service.save(req.body);
     res.status(200).send("");
   } catch (e) {
-    console.error('error on post', e);
+    console.error('error on post', req.body, e);
     res.status(500).send("");
   }
-  
 });
 
 
@@ -40,8 +39,15 @@ app.post('/password-cards/', function(req, res) {
  * PUT
  */
 app.put('/password-cards/:id', (req, res) => {
-  console.log('put', req);
-  req.params['id'];
+  try {
+    const id = parseInt(req.params['id']);
+    console.log('put', req.body, 'id', id);
+    service.update(id, req.body);
+    res.status(200).send("");
+  } catch (e) {
+    console.error('error on put', req.body, e)
+    res.status(404).send("object not found");
+  }
 });
 
 
