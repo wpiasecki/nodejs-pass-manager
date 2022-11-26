@@ -1,28 +1,57 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
+
+app.use(express.json());
 
 const port = 5050;
 
-const service = require('./service/password-card-service.js').PasswordCardService;
 
 
-app.get('/', (request, response) => {
-  response.send({ hello: 'world' });
-});
+const service = (function() { 
+  const PasswordCardService = require('./service/password-card-service.js');
+  return new PasswordCardService();
+})();
 
+
+/**
+ * GET
+ */
 app.get('/password-cards', (req, res) => {
-  res.send('password-cards');
+  res.send(service.list());
 });
 
-app.post('/password-cards/', (req, res) => {
+
+/**
+ * POST
+ */
+app.post('/password-cards/', function(req, res) {
+  try {
+    service.save(req.body);
+    res.status(200).send("");
+  } catch (e) {
+    console.error('error on post', e);
+    res.status(500).send("");
+  }
   
 });
 
-app.put('/password-cards/{id}', (req, res) => {
-  
+
+/**
+ * PUT
+ */
+app.put('/password-cards/:id', (req, res) => {
+  console.log('put', req);
+  req.params['id'];
 });
 
-app.delete('/password-cards/{id}', (req, res) => {
-  
+
+/**
+ * DELETE
+ */
+app.delete('/password-cards/:id', (req, res) => {
+  console.log('delete', req);
+  const id = req.params['id']
+  service.delete(req.id)
 });
 
 

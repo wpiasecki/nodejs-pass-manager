@@ -1,8 +1,9 @@
 const Card = require('./card.js');
+const getDb = () => require('./data-source.js');
 
 class PasswordCardService {
   
-  constructor(dataSource) {
+  constructor(dataSource = getDb()) {
     this.db = dataSource.db();
   }
 

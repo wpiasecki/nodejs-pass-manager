@@ -2,8 +2,7 @@ const getDb = () => require('../service/data-source.js');
 
 const getService = () => { 
   const PasswordCardService = require('../service/password-card-service.js');
-  const service = new PasswordCardService(getDb());
-  console.log('service.db', service.db);
+  return new PasswordCardService(getDb());
   return service;
 }
 
