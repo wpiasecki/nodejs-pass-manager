@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-pass-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpiasecki/nodejs-pass-manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wpiasecki/nodejs-pass-manager/issues"
+  },
+  "homepage": "https://github.com/wpiasecki/nodejs-pass-manager#readme",
+  "devDependencies": {
+    "express": "^4.18.2"
+  },
+  "dependencies": {
+    "jest": "^29.3.1"
+  }
+}
