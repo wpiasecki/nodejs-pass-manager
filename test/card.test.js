@@ -1,5 +1,5 @@
 
-const Card = require('../service/card.js').Card;
+const Card = require('../service/card.js');
 
 
 test('new card should be created', () => {
@@ -43,5 +43,4 @@ test('card username is required', () => {
     expect(e.message).toEqual('username is required');
   }
 });
-
 
