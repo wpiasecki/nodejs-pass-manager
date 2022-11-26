@@ -1,0 +1,1 @@
+# nodejs-pass-manager
