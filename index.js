@@ -55,9 +55,15 @@ app.put('/password-cards/:id', (req, res) => {
  * DELETE
  */
 app.delete('/password-cards/:id', (req, res) => {
-  console.log('delete', req);
-  const id = req.params['id']
-  service.delete(req.id)
+  try {
+    const id = parseInt(req.params['id']);
+    console.log('delete', id);
+    service.delete(id);
+    res.status(200).send("");
+  } catch (e) {
+    console.error('error on delete', req.body, e)
+    res.status(404).send("object not found");    
+  }
 });
 
 
