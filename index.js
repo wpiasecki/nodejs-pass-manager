@@ -1,16 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json());
 
 const port = 5050;
 
 
-
-const service = (function() { 
-  const PasswordCardService = require('./service/password-card-service.js');
-  return new PasswordCardService();
-})();
+const PasswordCardService = require('./service/password-card-service.js');
+const service = new PasswordCardService();
 
 
 /**
