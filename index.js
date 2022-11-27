@@ -41,7 +41,6 @@ app.post('/password-cards/', function(req, res) {
 app.put('/password-cards/:id', (req, res) => {
   try {
     const id = parseInt(req.params['id']);
-    console.log('put', req.body, 'id', id);
     service.update(id, req.body);
     res.status(200).send("");
   } catch (e) {
@@ -57,7 +56,6 @@ app.put('/password-cards/:id', (req, res) => {
 app.delete('/password-cards/:id', (req, res) => {
   try {
     const id = parseInt(req.params['id']);
-    console.log('delete', id);
     service.delete(id);
     res.status(200).send("");
   } catch (e) {
