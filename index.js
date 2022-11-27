@@ -65,5 +65,5 @@ app.delete('/password-cards/:id', (req, res) => {
 });
 
 
-app.listen(port, () => console.log('server up'));
+app.listen(port, () => console.log(`server up on port ${port}`));
 
