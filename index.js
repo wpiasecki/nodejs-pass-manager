@@ -16,8 +16,14 @@ const service = new PasswordCardService();
 /**
  * GET
  */
-app.get('/password-cards', (req, res) => {
-  res.send(service.list());
+app.get('/password-cards/', (req, res) => {
+  const name = req.query.name;
+  if (name) {
+    res.send(service.findByName(name));
+  }
+  else {
+    res.send(service.list());
+  }
 });
 
 
